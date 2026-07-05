@@ -38,7 +38,7 @@
       display-name = "Base";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
         &kp TAB    ,  &kp Q  &kp W  &kp E  &kp R  &kp T   ,   &kp Y  &kp U  &kp I     &kp O   &kp P     ,  &kp BACKSPACE ,
-        &kp ESCAPE ,  &H4 A  &H3 S  &H2 D  &H1 F  &kp G   ,   &kp H  &H1 J  &H2 K     &H3 L   &H4 SEMI  ,  &kp ENTER     ,
+        &kp ESCAPE ,  &H4l A  &H3l S  &H2l D  &H1l F  &kp G   ,   &kp H  &H1r J  &H2r K     &H3r L   &H4r SEMI  ,  &kp ENTER     ,
         &kp LSHIFT ,  &kp Z  &kp X  &kp C  &kp V  &kp B   ,   &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH  ,  &kp RSHIFT    ,
                LTHUMB_TUCK , LTHUMB_HOME , LTHUMB_REACH   ,   RTHUMB_REACH , RTHUMB_HOME , RTHUMB_TUCK
       )>;
