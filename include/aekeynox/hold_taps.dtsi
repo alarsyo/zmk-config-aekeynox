@@ -36,19 +36,19 @@
   #define ALT_CTL LALT
 #endif
 
-#define H_S &hrm GUI_OPT
-#define H_D &hrm CTL_CMD
-#define H_F &hrm ALT_CTL
-#define H_J &hrm ALT_CTL
-#define H_K &hrm CTL_CMD
-#define H_L &hrm GUI_OPT
+#define H_S &lhrm GUI_OPT
+#define H_D &lhrm CTL_CMD
+#define H_F &lhrm ALT_CTL
+#define H_J &rhrm ALT_CTL
+#define H_K &rhrm CTL_CMD
+#define H_L &rhrm GUI_OPT
 
 #if defined HRM_SHIFT && defined PINKY_MOD_HOLD
   #define H_A    &mhhrm LSHIFT
   #define H_SEMI &mhhrm RSHIFT
 #elif defined HRM_SHIFT
-  #define H_A    &hrm LSHIFT
-  #define H_SEMI &hrm RSHIFT
+  #define H_A    &lhrm LSHIFT
+  #define H_SEMI &rhrm RSHIFT
 #elif defined PINKY_MOD_HOLD
   #define H_A    &mhkp 0
   #define H_SEMI &mhkp 0
@@ -193,6 +193,36 @@
       tapping-term-ms = <TAPPING_TERM>;
       quick-tap-ms = <QUICK_TAP>;
       flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    OMIT_IF_NO_REF lhrm: left_homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <TAPPING_TERM>;
+      quick-tap-ms = <QUICK_TAP>;
+      flavor = "balanced";
+      hold-trigger-key-positions = <
+         6  7  8  9 10 11
+        18 19 20 21 22 23
+        30 31 32 33 34 35
+        39 40 41
+      >;
+      hold-trigger-on-release;
+      bindings = <&kp>, <&kp>;
+    };
+    OMIT_IF_NO_REF rhrm: right_homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <TAPPING_TERM>;
+      quick-tap-ms = <QUICK_TAP>;
+      flavor = "balanced";
+      hold-trigger-key-positions = <
+         0  1  2  3  4  5
+        12 13 14 15 16 17
+        24 25 26 27 28 29
+                 36 37 38
+      >;
+      hold-trigger-on-release;
       bindings = <&kp>, <&kp>;
     };
     OMIT_IF_NO_REF sc: space_cadet { // same as lt, but with hold-preferred
