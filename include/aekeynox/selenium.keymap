@@ -13,6 +13,7 @@
 #include "mappings.dtsi"  // key mapping helpers and macros
 #include "hold_taps.dtsi" // defines thumb keys and homerow mods
 
+#define MOUSE 7
 /**
  * All keyboard layers are defined by blocks on a 42-key basis, as follows:
  *
@@ -38,7 +39,7 @@
       display-name = "Base";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
         &kp TAB    ,  &kp Q  &kp W  &kp E  &kp R  &kp T   ,   &kp Y  &kp U  &kp I     &kp O   &kp P     ,  &kp BACKSPACE ,
-        &kp ESCAPE ,  &H4l A  &H3l S  &H2l D  &H1l F  &kp G   ,   &kp H  &H1r J  &H2r K     &H3r L   &H4r SEMI  ,  &kp ENTER     ,
+        &mo MOUSE ,  &H4l A  &H3l S  &H2l D  &H1l F  &kp G   ,   &kp H  &H1r J  &H2r K     &H3r L   &H4r SEMI  ,  &kp ENTER     ,
         &kp LSHIFT ,  &kp Z  &kp X  &kp C  &kp V  &kp B   ,   &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH  ,  &kp RSHIFT    ,
                LTHUMB_TUCK , LTHUMB_HOME , LTHUMB_REACH   ,   RTHUMB_REACH , RTHUMB_HOME , RTHUMB_TUCK
       )>;
@@ -119,6 +120,18 @@
       )>;
     };
 
+    // 7. FnMedia layer -- F1..12 pad on the left hand, HRM on the right hand
+    //                  -- reset and bootloader reset on difficult thumb keys
+    //                  -- could be completed with other rare keys
+    mouse_layer: mouse_layer {
+      display-name = "Mouse";
+      bindings = <SELENIUM_KEYMAP_BINDINGS(
+        &trans  ,  &none   &none   &none   &none   &none   ,   &mkp MCLK   &mkp LCLK  &mmv MOVE_UP   &mkp RCLK   &none  ,  &trans ,
+        &trans  ,  &none   &none   &none   &none   &none   ,   &none   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT    &none  ,  &trans ,
+        &trans  ,  &none   &none   &none   &none   &none   ,   X_MSC_L   X_MSC_D X_MSC_U X_MSC_R  &none  ,  &trans ,
+                                   &none , &none , &none   ,   &none , &none , &none
+      )>;
+    };
   };
 };
 
